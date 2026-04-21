@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ZEHIO FOODS | Nikmati Cita Rasa Sehat & Lezat</title>
+  <!-- Google Fonts + Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #1e293b;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* Color Palette - Fresh & Appetizing */
+    :root {
+      --primary: #e67e22;
+      --primary-dark: #d35400;
+      --secondary: #2c3e50;
+      --accent: #f1c40f;
+      --light-bg: #fef9e8;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-600: #4b5563;
+      --gray-800: #1f2937;
+      --white: #ffffff;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+      --radius: 1rem;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s;
+    }
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+    .logo h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--primary) 0%, #f39c12 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--primary);
+      letter-spacing: 1px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--gray-800);
+      transition: 0.2s;
+      font-size: 0.95rem;
+    }
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+    .btn-outline {
+      border: 2px solid var(--primary);
+      background: transparent;
+      padding: 0.5rem 1.25rem;
+      border-radius: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--primary);
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      font-weight: 700;
+      padding: 0.8rem 2rem;
+      border-radius: 2.5rem;
+      text-decoration: none;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(230, 126, 34, 0.3);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 20px rgba(230, 126, 34, 0.25);
+    }
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid white;
+      color: white;
+      font-weight: 700;
+      padding: 0.75rem 1.8rem;
+      border-radius: 2.5rem;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .btn-secondary:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(105deg, #fff5e6 0%, #ffe8d4 100%);
+      padding: 5rem 0 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      right: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(230,126,34,0.08) 0%, rgba(255,245,230,0) 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1;
+    }
+    .hero-content .badge {
+      background: rgba(230,126,34,0.15);
+      display: inline-block;
+      padding: 0.3rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      margin-bottom: 1.5rem;
+    }
+    .hero-content h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.02em;
+      color: var(--secondary);
+    }
+    .hero-content h1 span {
+      color: var(--primary);
+    }
+    .hero-content p {
+      font-size: 1.15rem;
+      color: var(--gray-600);
+      margin-bottom: 2rem;
+      max-width: 90%;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .hero-image {
+      flex: 1;
+      text-align: center;
+    }
+    .hero-image img {
+      max-width: 100%;
+      border-radius: 2rem;
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s;
+    }
+    .hero-image img:hover {
+      transform: scale(1.02);
+    }
+
+    /* Section Header */
+    section {
+      padding: 5rem 0;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--secondary);
+      margin-bottom: 0.75rem;
+    }
+    .section-header p {
+      color: var(--gray-600);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .underline-accent {
+      width: 70px;
+      height: 4px;
+      background: var(--primary);
+      margin: 1rem auto 0;
+      border-radius: 4px;
+    }
+
+    /* Product Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s;
+      border: 1px solid var(--gray-200);
+    }
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+    .product-img {
+      height: 240px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .product-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .product-info {
+      padding: 1.5rem;
+    }
+    .product-info h4 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .product-desc {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .product-price {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .btn-sm {
+      background: var(--secondary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-sm:hover {
+      background: var(--primary);
+    }
+
+    /* Features */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      transition: 0.2s;
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .feature-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-content h3 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    .about-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+    .about-list li {
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .about-list i {
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    .about-image img {
+      width: 100%;
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .testimonial-card {
+      background: var(--light-bg);
+      padding: 2rem;
+      border-radius: var(--radius);
+      border-left: 5px solid var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 1.2rem;
+      color: var(--gray-600);
+    }
+    .client-info {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .client-info i {
+      font-size: 2rem;
+      color: var(--primary);
+    }
+    .stars {
+      color: var(--accent);
+      margin-top: 0.6rem;
+    }
+
+    /* Contact & CTA */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      background: var(--light-bg);
+      padding: 2rem;
+      border-radius: 2rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-item i {
+      width: 42px;
+      height: 42px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: var(--primary);
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--gray-200);
+      border-radius: 1rem;
+      font-family: inherit;
+      transition: 0.2s;
+      background: white;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(230,126,34,0.2);
+    }
+    button[type="submit"] {
+      width: 100%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      font-weight: 700;
+      padding: 0.9rem;
+      border-radius: 2rem;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    button[type="submit"]:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--secondary);
+      color: #cbd5e1;
+      padding: 3rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .footer-brand h3 {
+      color: white;
+      font-size: 1.6rem;
+      margin-bottom: 0.5rem;
+    }
+    .footer-links ul {
+      list-style: none;
+    }
+    .footer-links li {
+      margin-bottom: 0.6rem;
+    }
+    .footer-links a {
+      color: #cbd5e1;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+    .social-icons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .social-icons a {
+      background: rgba(255,255,255,0.1);
+      width: 36px;
+      height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      color: white;
+      transition: 0.2s;
+    }
+    .social-icons a:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 850px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: white;
+        width: 75%;
+        height: calc(100vh - 70px);
+        box-shadow: var(--shadow-lg);
+        padding: 2rem;
+        gap: 1.8rem;
+        transition: 0.3s;
+        z-index: 99;
+        align-items: flex-start;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .hero-grid {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .hero-content p {
+        max-width: 100%;
+      }
+      .hero-buttons {
+        justify-content: center;
+      }
+      .about-grid, .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .section-header h2 {
+        font-size: 1.9rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="container nav-container">
+    <div class="logo">
+      <h1>ZEHIO <span>FOODS</span></h1>
+    </div>
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="#home">Beranda</a>
+      <a href="#products">Produk</a>
+      <a href="#about">Tentang</a>
+      <a href="#testimonials">Testimoni</a>
+      <a href="#contact">Kontak</a>
+      <a href="#contact" class="btn-outline">Pesan Sekarang <i class="fas fa-shopping-bag"></i></a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="badge"><i class="fas fa-leaf"></i>  Rasa Autentik, Bahan Berkualitas</div>
+      <h1>Nikmati <span>Kelezatan</span> <br> Dalam Setiap Gigitan</h1>
+      <p>ZEHIO FOODS menghadirkan camilan sehat dan lezat dari bahan-bahan pilihan. Tanpa pengawet, tanpa rasa bersalah.</p>
+      <div class="hero-buttons">
+        <a href="#products" class="btn-primary">Lihat Menu <i class="fas fa-arrow-right"></i></a>
+        <a href="#contact" class="btn-secondary" style="background: var(--secondary); border-color: var(--secondary);">Pesan via WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://picsum.photos/id/108/600/500" alt="ZEHIO FOODS hidangan lezat">
+    </div>
+  </div>
+</section>
+
+<!-- Produk Unggulan -->
+<section id="products">
+  <div class="container">
+    <div class="section-header">
+      <h2>Produk Favorit</h2>
+      <p>Racikan terbaik dari dapur ZEHIO untuk menemani hari-harimu</p>
+      <div class="underline-accent"></div>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="product-img" style="background-image: url('https://picsum.photos/id/127/400/300');">
+          <span class="product-tag">Best Seller</span>
+        </div>
+        <div class="product-info">
+          <h4>Crunchy Bites</h4>
+          <div class="product-desc">Keripik kentang organik dengan rasa keju & rosemary. Renyah dan gurih.</div>
+          <div class="product-price">Rp 32.000</div>
+          <button class="btn-sm" onclick="alert('Pesan Crunchy Bites via WhatsApp: 6281234567890')">Pesan Sekarang</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background-image: url('https://picsum.photos/id/96/400/300');">
+          <span class="product-tag">New</span>
+        </div>
+        <div class="product-info">
+          <h4>Zehio Granola Bar</h4>
+          <div class="product-desc">Bar granola tinggi serat, madu murni & kacang almond. Tanpa gula tambahan.</div>
+          <div class="product-price">Rp 28.000</div>
+          <button class="btn-sm" onclick="alert('Pesan Granola Bar via WhatsApp: 6281234567890')">Pesan Sekarang</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img" style="background-image: url('https://picsum.photos/id/22/400/300');">
+          <span class="product-tag">Limited</span>
+        </div>
+        <div class="product-info">
+          <h4>Matcha Latte Stick</h4>
+          <div class="product-desc">Minuman matcha premium, praktis, dan antioksidan tinggi. Edisi terbatas.</div>
+          <div class="product-price">Rp 45.000</div>
+          <button class="btn-sm" onclick="alert('Pesan Matcha Latte via WhatsApp: 6281234567890')">Pesan Sekarang</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Keunggulan -->
+<section style="background: var(--gray-50);">
+  <div class="container">
+    <div class="section-header">
+      <h2>Mengapa Memilih ZEHIO?</h2>
+      <p>Kami peduli dengan kesehatan dan kepuasan pelanggan</p>
+      <div class="underline-accent"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-seedling"></i></div>
+        <h3>Bahan Alami</h3>
+        <p>100% bahan organik dari petani lokal terpercaya.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+        <h3>Rendah Gula</h3>
+        <p>Formulasi khusus untuk gaya hidup sehat.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-shipping-fast"></i></div>
+        <h3>Pengiriman Cepat</h3>
+        <p>Sampai dalam 1-2 hari di seluruh Indonesia.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+        <h3>Bersertifikat</h3>
+        <p>Terdaftar BPOM & MUI Halal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tentang Kami -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-content">
+      <h3>Cerita ZEHIO FOODS</h3>
+      <p>Berawal dari kecintaan terhadap makanan sehat dan lezat, ZEHIO FOODS hadir untuk mengubah cara pandang Anda terhadap camilan. Kami percaya bahwa makanan enak tidak harus mengorbankan kesehatan.</p>
+      <ul class="about-list">
+        <li><i class="fas fa-check-circle"></i> Didirikan tahun 2019 oleh tim foodpreneur muda</li>
+        <li><i class="fas fa-check-circle"></i> Ratusan ribu pelanggan puas di 30+ kota</li>
+        <li><i class="fas fa-check-circle"></i> Inovasi rasa setiap bulan</li>
+        <li><i class="fas fa-check-circle"></i> Komitmen zero waste packaging</li>
+      </ul>
+      <a href="#contact" class="btn-primary" style="background: var(--secondary);">Pelajari Lebih Lanjut →</a>
+    </div>
+    <div class="about-image">
+      <img src="https://picsum.photos/id/135/600/500" alt="Proses produksi ZEHIO FOODS">
+    </div>
+  </div>
+</section>
+
+<!-- Testimoni -->
+<section id="testimonials" style="background: var(--light-bg);">
+  <div class="container">
+    <div class="section-header">
+      <h2>Apa Kata Mereka</h2>
+      <p>Lebih dari 10.000 ulasan positif dari pelanggan setia</p>
+      <div class="underline-accent"></div>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          <i class="fas fa-quote-left" style="color: var(--primary); opacity:0.5;"></i>
+          <p>Crunchy Bites-nya juara! Renyah dan rasa kejunya pas. Jadi camilan favorit di kantor.</p>
+        </div>
+        <div class="client-info">
+          <i class="fas fa-user-circle"></i>
+          <div><h4>Rina Andriani</h4><small>Food Blogger</small></div>
+        </div>
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          <i class="fas fa-quote-left" style="color: var(--primary); opacity:0.5;"></i>
+          <p>Granola bar-nya enak dan mengenyangkan. Cocok buat sarapan praktis. Langganan tiap bulan!</p>
+        </div>
+        <div class="client-info">
+          <i class="fas fa-user-circle"></i>
+          <div><h4>Dedi Pratama</h4><small>Atlet Fitness</small></div>
+        </div>
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-text">
+          <i class="fas fa-quote-left" style="color: var(--primary); opacity:0.5;"></i>
+          <p>Matcha Latte stick favorit saya. Praktis dan rasa matchanya authentic. Love ZEHIO!</p>
+        </div>
+        <div class="client-info">
+          <i class="fas fa-user-circle"></i>
+          <div><h4>Siti Nurhaliza</h4><small>Wiraswasta</small></div>
+        </div>
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Kontak & Pesan -->
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <h3>Hubungi Kami</h3>
+      <p>Pesan sekarang atau tanyakan produk kami. Tim ZEHIO siap membantu Anda.</p>
+      <div class="contact-details">
+        <div class="contact-item"><i class="fas fa-map-marker-alt"></i> <span>Jl. Raya Kebayoran Lama No.12, Jakarta Selatan</span></div>
+        <div class="contact-item"><i class="fab fa-whatsapp"></i> <span>+62 812-3456-7890 (WhatsApp)</span></div>
+        <div class="contact-item"><i class="fas fa-envelope"></i> <span>hello@zehiofoods.co.id</span></div>
+        <div class="contact-item"><i class="fas fa-clock"></i> <span>Senin - Sabtu: 09.00 - 18.00</span></div>
+      </div>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>Pesan Sekarang</h3>
+      <form id="contactForm">
+        <div class="form-group"><input type="text" placeholder="Nama Lengkap" required></div>
+        <div class="form-group"><input type="email" placeholder="Email" required></div>
+        <div class="form-group"><input type="tel" placeholder="Nomor WhatsApp"></div>
+        <div class="form-group"><textarea rows="3" placeholder="Produk yang ingin dipesan / pertanyaan..."></textarea></div>
+        <button type="submit">Kirim Pesanan <i class="fas fa-shopping-cart"></i></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>ZEHIO FOODS</h3>
+        <p>Sehat, Lezat, dan Bertanggung Jawab. Camilan masa depan.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Menu</h4>
+        <ul>
+          <li><a href="#home">Beranda</a></li>
+          <li><a href="#products">Produk</a></li>
+          <li><a href="#about">Tentang</a></li>
+          <li><a href="#testimonials">Testimoni</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Bantuan</h4>
+        <ul>
+          <li><a href="#">Cara Pemesanan</a></li>
+          <li><a href="#">Kebijakan Pengiriman</a></li>
+          <li><a href="#">Pengembalian</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Ikuti Kami</h4>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2026 ZEHIO FOODS - All Rights Reserved. Nikmati kelezatan tanpa kompromi.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile Menu
+  const menuBtn = document.getElementById('mobile-menu');
+  const navMenu = document.getElementById('nav-links');
+  if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+  }
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+    });
+  });
+
+  // Smooth Scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Form Submit
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Terima kasih! Tim ZEHIO FOODS akan segera menghubungi Anda melalui WhatsApp untuk konfirmasi pesanan.');
+      contactForm.reset();
+    });
+  }
+</script>
+</body>
+</html>
